@@ -9,6 +9,14 @@ export default new Vuex.Store({
   mutations: {
   },
   actions: {
+    async fetchBooks () {
+      try {
+        const { data } = await Vue.axios.get('books')
+        return data
+      } catch (err) {
+        throw new Error(err)
+      }
+    }
   },
   modules: {
   }
